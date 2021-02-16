@@ -27,6 +27,15 @@ class _MainLayoutState extends State<MainLayout> {
     Menu("Homepage", Icons.home_outlined, "home"),
     Menu("About", Icons.info_outline, "about")
   ];
+  var imgProfile;
+  @override
+  void initState() {
+    imgProfile = Image.asset(
+      "img/img_avatar.png",
+      width: 50,
+    );
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,11 +44,14 @@ class _MainLayoutState extends State<MainLayout> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: Text(
-          widget.title,
-          style: TextStyle(
-              fontFamily: mainTheme.headerFontFace,
-              fontSize: 23
+        title: Align(
+          alignment: Alignment(-1.2, 0),
+          child: Text(
+            widget.title,
+            style: TextStyle(
+                fontFamily: mainTheme.headerFontFace,
+                fontSize: 23
+            ),
           ),
         ),
         leading: Builder(
@@ -94,10 +106,7 @@ class _MainLayoutState extends State<MainLayout> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           ClipRRect(
-                            child: Image.asset(
-                              "img/img_avatar.png",
-                              width: 50,
-                            ),
+                            child: imgProfile,
                             borderRadius: BorderRadius.circular(8),
                           ),
                           SizedBox(
